@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="col-12 col-md-6">
+    <%= link_to "< Dresseurs", trainers_path %>
+    <p class="my-3"><%= @trainer.name %> va tous les attraper !</p>
+    <div class="card-trainer my-3">
+      <%= cl_image_tag @trainer.photo.key %>
+      <p class="fs-4"><%= @trainer.name %></p>
+      <p><%= @trainer.age %> ans</p>
+    </div>
+  </div>
+  <div class="col-12 col-md-6">
+    <h2>Le tableau de chasse de <%= @trainer.name %></h2>
+    <div class="row">
+      <% @pokeballs.each do |pokeball| %>
+        <div class="col-12 col-md-6">
+          <div class="card-pokemon my-3">
+            <%= cl_image_tag pokeball.pokemon.photo.key %>
+            <p class="fs-4"><%= pokeball.pokemon.name %></p>
+            <p><%= pokeball.pokemon.element_type %></p>
+            <p>attrapé le <%= pokeball.caught_on %> à <%= pokeball.location %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    
+  </div>
+</div>
